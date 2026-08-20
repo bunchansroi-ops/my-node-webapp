@@ -51,11 +51,6 @@ app.get('/products', async (req, res) => {
     }
 });
 
-// 3. กำหนดพอร์ตจากไฟล์ .env (ถ้าไม่มีให้ใช้พอร์ต 8080)
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-console.log(`Server is running on port ${PORT}`);
-});
 
 // 4. การตั้งค่า (Configuration) ให้ Framework รู้จักโฟลเดอร์ต่างๆ
 app.use(express.static('public')); // อนุญาตให้เข้าถึงโฟลเดอร์ public
@@ -151,7 +146,7 @@ app.post('/register', async (req, res) => {
 });
 
 // 6. สั่งให้เซิร์ฟเวอร์เริ่มทำงานและรับฟังการเชื่อมต่อ
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`Server is running strongly on http://localhost:${port}`);
 });
 
