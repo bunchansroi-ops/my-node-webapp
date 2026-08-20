@@ -35,13 +35,24 @@ app.get('/users', async (req, res) => {
 //const db = require('./config/db');
 
 // Route สำหรับดูรายการสินค้า
+// Route สำหรับ Users
+app.get('/users', async (req, res) => {
+  try {
+    const [rows] = await db.query('SELECT * FROM users ORDER BY id DESC');
+    res.render('users', { users: rows }); // หรือ res.json(rows) ตามโครงสร้างโปรเจกต์
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('เกิดข้อผิดพลาดในการดึงข้อมูลผู้ใช้');
+  }
+});
+
+// Route สำหรับ Products
 app.get('/products', async (req, res) => {
   try {
-    // ใช้ SELECT * FROM products แทนการระบุชื่อคอลัมน์เจาะจง
     const [rows] = await db.query('SELECT * FROM products ORDER BY id DESC');
-    res.json(rows);
+    res.render('products', { products: rows }); // หรือ res.json(rows) ตามโครงสร้างโปรเจกต์
   } catch (error) {
-    console.error('Error executing query:', error);
+    console.error(error);
     res.status(500).send('เกิดข้อผิดพลาดในการดึงข้อมูลสินค้า');
   }
 });
