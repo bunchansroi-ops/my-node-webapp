@@ -146,7 +146,9 @@ app.post('/register', async (req, res) => {
 });
 
 // 6. สั่งให้เซิร์ฟเวอร์เริ่มทำงานและรับฟังการเชื่อมต่อ
-app.listen(PORT, () => {
-  console.log(`Server is running strongly on http://localhost:${port}`);
-});
+// ประกาศตัวแปร PORT ก่อนใช้งาน
+const PORT = process.env.PORT || 3000;
 
+app.listen(PORT, () => {
+  console.log(`Server is running strongly on http://localhost:${PORT}`);
+});
