@@ -37,7 +37,7 @@ app.get('/users', async (req, res) => {
 app.get('/products', async (req, res) => {
     try {
         const [rows] = await db.query(
-            'SELECT id, productsname, price, stock, MFG_date, EXP_date FROM FROM users ORDER BY id DESC'
+            'SELECT id, productsname, price, stock, MFG_date, EXP_date  FROM users ORDER BY id DESC'
         );
 
         res.render('products', {
