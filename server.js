@@ -34,21 +34,16 @@ app.get('/users', async (req, res) => {
  // นำเข้าไฟล์ฐานข้อมูล (ได้การนำเข้า express)
 //const db = require('./config/db');
 
+// Route สำหรับดูรายการสินค้า
 app.get('/products', async (req, res) => {
-    try {
-        const [rows] = await db.query(
-            'SELECT id, productsname, price, stock, MFG_date, EXP_date  FROM users ORDER BY id DESC'
-        );
-
-        res.render('products', {
-            title: 'รายการสินค้า',
-            products_data: rows
-        });
-
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('เกิดข้อผิดพลาดในการดึงข้อมูล');
-    }
+  try {
+    // ใช้ SELECT * FROM products แทนการระบุชื่อคอลัมน์เจาะจง
+    const [rows] = await db.query('SELECT * FROM products ORDER BY id DESC');
+    res.json(rows);
+  } catch (error) {
+    console.error('Error executing query:', error);
+    res.status(500).send('เกิดข้อผิดพลาดในการดึงข้อมูลสินค้า');
+  }
 });
 
 
