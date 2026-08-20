@@ -1,7 +1,6 @@
 const mysql = require('mysql2');
 require('dotenv').config();
 
-// สร้าง Connection Pool เชื่อมต่อ Aiven MySQL
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -16,7 +15,6 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// ตรวจสอบการเชื่อมต่อเบื้องต้น
 pool.getConnection((err, connection) => {
   if (err) {
     console.error('เกิดข้อผิดพลาดในการเชื่อมต่อ DB:', err.message);
