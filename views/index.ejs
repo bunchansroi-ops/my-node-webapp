@@ -1,0 +1,49 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+ <main>
+        <section class="container mt-5">
+             <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="display-4 fw-bold">
+                ยินดีต้อนรับคุณ <%= username %>
+            </h1>
+
+            <p class="lead">
+                นี่คือหน้าเว็บที่ประกอบขึ้นจาก Template Engine
+            </p>
+            </div>
+         </div>
+        </section>
+
+        <section class="container mt-5">
+            <h1 class="display-4 fw-bold">Canva</h1>
+            <p>แพลตฟอร์มออกแบบกราฟิกออนไลน์
+                ที่ให้ทุกคนสร้างสรรค์งานดีไซน์สวยงามได้ง่ายๆ
+                โดยไม่ต้องมีพื้นฐานด้านการออกแบบ
+                ใช้งานผ่านระบบลากและวาง (Drag & Drop)
+                มีเทมเพลตสำเร็จรูปให้เลือกมากมาย ทั้งบนเว็บไซต์และแอปพลิเคชัน
+            </p>
+            <a href="   /" class="btn btn-primary btn-lg">เริ่มต้นใช้งาน </a>
+        </section>
+        <section class="container mt-5">
+            <div class="col-md-6 mx-auto">
+                <div class="mb-3">
+                    <label class="form-label">ชื่อ</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">อีเมล</label>
+                    <input type="text" class="form-control">
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">ข้อความ</label>
+                    <textarea class="form-control" rows="4"></textarea>
+                    <button type="submit" class="btn btn-success w-100">ส่งข้อความ</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<%- include('partials/footer') %>

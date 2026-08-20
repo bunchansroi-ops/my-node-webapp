@@ -1,0 +1,47 @@
+<%- include('partials/head') %>
+    <%- include('partials/navbar') %>
+
+        <main class="container mt-5">
+            <h2 class="mb-4">รายชื่อสินค้าในระบบ</h2>
+
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>ชื่อสินค้า</th>
+                        <th>ราคา</th>
+                        <th>สต็อกสินค้า</th>
+                        <th>วันที่ผลิต</th>
+                        <th>วันที่หมดอายุ</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% products_data.forEach(function(product) { %>
+                        <tr>
+                            <td>
+                                <%= product.id %>
+                            </td>
+                            <td>
+                                <%= product.productsname %>
+                            </td>
+                            <td>
+                                <%= product.price %>
+                            </td>
+                            <td>
+                                <%= product.stock %>
+                            </td>
+                            <td>
+                                <%= new Date(product.MFG_date).toLocaleDateString('th-TH', { }) %>
+                            </td>
+
+                            <td>
+                                <%= new Date(product.EXP_date).toLocaleDateString('th-TH', { }) %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </main>
+
+        <%- include('partials/footer') %>
